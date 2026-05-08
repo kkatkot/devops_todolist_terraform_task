@@ -2,16 +2,16 @@
 
 resource "azurerm_virtual_network" "example" {
   name                = var.virtual_network_name
-  address_space       = var.virtual_network_address_prefix
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  address_space       = var.vnet_address_prefix
+  location            = var.location
+  resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_subnet" "example" {
   name                 = var.subnet_name
-  resource_group_name  = azurerm_resource_group.example.name
+  resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.example.name
-  address_prefixes     = var.subnet_name_address_prefix
+  address_prefixes     = var.subnet_address_prefix
 
 #   delegation {
 #     name = "delegation"
@@ -24,9 +24,9 @@ resource "azurerm_subnet" "example" {
 }
 
 resource "azurerm_network_security_group" "example" {
-  name                = var.azurerm_network_security_group_name
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  name                = var.network_security_group_name
+  location            = var.location
+  resource_group_name = var.resource_group_name
 
   security_rule {
     name                       = "test123"
@@ -52,8 +52,8 @@ resource "random_integer" "ri" {
 
 resource "azurerm_public_ip" "example" {
   name                = var.public_ip_address_name
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
+  resource_group_name = var.resource_group_name
+  location            = var.location
   allocation_method   = "Dynamic"
   domain_name_label   = "matetask${random_integer.ri.result}"
 

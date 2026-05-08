@@ -1,14 +1,12 @@
-variable virtual_machine_name {
-    type = string
-    default = "matebox"
-}
 
-variable vm_size {
-    type = string
-    default = "Standard_B1s"
-}
-variable ssh_public_key {
-    type = string
-    default = "linuxboxsshkey"
-  
-}
+variable vm_size {}
+variable ssh_key_public {}
+
+variable location {}
+variable vm_name {}
+
+variable location {}
+variable resource_group_name {}
+
+variable subnet_id {}
+variable public_ip {}

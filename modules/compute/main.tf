@@ -1,20 +1,20 @@
 resource "azurerm_network_interface" "example" {
-  name                = "${var.virtual_machine_name}-nic"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  name                = "${var.vm_name}-nic"
+  location            = var.location
+  resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.example.id
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.example.id
+    public_ip_address_id = var.public_ip
   }
 }
 
 resource "azurerm_linux_virtual_machine" "example" {
-  name                = var.virtual_machine_name
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
+  name                = var.vm_name
+  resource_group_name = var.resource_group_name
+  location            = var.location
   size                = var.vm_size
   admin_username      = "adminuser"
   network_interface_ids = [
@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine" "example" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = var.ssh_public_key
+    public_key = var.ssh_key_public
   }
 
   os_disk {
