@@ -18,7 +18,7 @@ resource "azurerm_storage_account" "example" {
 }
 
 resource "azurerm_storage_container" "example" {
-  name                  = "vhds"
+  name                  = var.storage_container_name
   storage_account_id    = azurerm_storage_account.example.id
   container_access_type = "private"
 }

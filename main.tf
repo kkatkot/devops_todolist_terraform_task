@@ -1,3 +1,17 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.72.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  # Configuration options
+}
+
+
 module "network" {
     source = "./modules/network"
 

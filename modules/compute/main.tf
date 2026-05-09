@@ -48,7 +48,7 @@ resource "azurerm_virtual_machine_extension" "example" {
 
   settings = <<SETTINGS
  {
-  "commandToExecute": "bash cd .. &&  cd .. && install-app.sh"
+  "commandToExecute": "bash install-app.sh"
  }
 SETTINGS
 
