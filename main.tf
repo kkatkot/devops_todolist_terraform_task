@@ -11,6 +11,19 @@ provider "azurerm" {
   # Configuration options
 }
 
+resource "azurerm_resource_group" "example" {
+  name     = var.resource_group_name
+  location = var.location
+}
+
+resource "azurerm_storage_blob" "example" {
+  name                   = "my-awesome-content.zip"
+  storage_account_name   = module.storage.storage_account_name
+  storage_container_name = module.storage.storage_container_name
+  type                   = "Block"
+  source                 = "some-local-file.zip"
+}
+
 
 module "network" {
     source = "./modules/network"
@@ -44,5 +57,7 @@ module "storage" {
 
     resource_group_name = var.resource_group_name
     location = var.location
+    storage_account_id = azurerm_storage_account.example.id
+    subnet_id = azurerm_subnet.example.id
 
 }

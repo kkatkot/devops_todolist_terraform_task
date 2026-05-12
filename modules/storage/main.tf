@@ -7,9 +7,9 @@ resource "azurerm_storage_account" "example" {
   account_replication_type = "LRS"
 
   network_rules {
-    default_action             = "Deny"
+    default_action             = "Allow"
     ip_rules                   = ["100.0.0.1"]
-    virtual_network_subnet_ids = [azurerm_subnet.example.id]
+    virtual_network_subnet_ids = [var.subnet_id]
   }
 
   tags = {
@@ -19,6 +19,6 @@ resource "azurerm_storage_account" "example" {
 
 resource "azurerm_storage_container" "example" {
   name                  = var.storage_container_name
-  storage_account_id    = azurerm_storage_account.example.id
+  storage_account_id    = var.storage_account_id
   container_access_type = "private"
 }
