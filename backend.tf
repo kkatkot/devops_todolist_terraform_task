@@ -1,8 +1,8 @@
-terraform {
-  backend "azurerm" {
-    resource_group_name  = "mate-azure-task-12"
-    storage_account_name = "yourstorageaccount"
-    container_name       = "tfstate"
-    key                  = "terraform.tfstate"
-  }
-}
+# terraform {
+#   backend "azurerm" {
+#     resource_group_name  = var.resource_group_name
+#     storage_account_name = var.storage_account_name
+#     container_name       = var.storage_container_name
+#     key                  = "terraform.tfstate"
+#   }
+# }
