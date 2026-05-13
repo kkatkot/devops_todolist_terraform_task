@@ -8,7 +8,9 @@ terraform {
 }
 
 provider "azurerm" {
-  # Configuration options
+  features {
+
+  }
 }
 
 resource "azurerm_resource_group" "example" {
@@ -57,7 +59,7 @@ module "storage" {
 
   resource_group_name = var.resource_group_name
   location            = var.location
-  storage_account_id  = azurerm_storage_account.example.id
-  subnet_id           = azurerm_subnet.example.id
+  # storage_account_id  = module.storage.storage_account_id
+  subnet_id = module.network.subnet_id
 
 }

@@ -19,6 +19,6 @@ resource "azurerm_storage_account" "example" {
 
 resource "azurerm_storage_container" "example" {
   name                  = var.storage_container_name
-  storage_account_id    = var.storage_account_id
+  storage_account_id    = azurerm_storage_account.example.id
   container_access_type = "private"
 }
