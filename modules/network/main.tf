@@ -13,14 +13,14 @@ resource "azurerm_subnet" "example" {
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = var.subnet_address_prefix
 
-#   delegation {
-#     name = "delegation"
+  #   delegation {
+  #     name = "delegation"
 
-#     service_delegation {
-#       name    = "Microsoft.ContainerInstance/containerGroups"
-#       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action", "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"]
-#     }
-#   }
+  #     service_delegation {
+  #       name    = "Microsoft.ContainerInstance/containerGroups"
+  #       actions = ["Microsoft.Network/virtualNetworks/subnets/join/action", "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"]
+  #     }
+  #   }
 }
 
 resource "azurerm_network_security_group" "example" {
@@ -40,9 +40,9 @@ resource "azurerm_network_security_group" "example" {
     destination_address_prefix = "*"
   }
 
-#   tags = {
-#     environment = "Production"
-#   }
+  #   tags = {
+  #     environment = "Production"
+  #   }
 }
 
 resource "random_integer" "ri" {
@@ -57,8 +57,8 @@ resource "azurerm_public_ip" "example" {
   allocation_method   = "Dynamic"
   domain_name_label   = "matetask${random_integer.ri.result}"
 
-#   tags = {
-#     environment = "Production"
-#   }
+  #   tags = {
+  #     environment = "Production"
+  #   }
 }
 

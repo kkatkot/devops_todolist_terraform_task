@@ -1,11 +1,11 @@
 output "storage_account_name" {
-    value = azurerm_storage_account.example.name
+  value = azurerm_storage_account.example.name
 }
 
 output "storage_account_id" {
-    value = azurerm_storage_account.example.id
+  value = azurerm_storage_account.example.id
 }
 
 output "storage_container_name" {
-    value = azurerm_storage_container.example.name
+  value = azurerm_storage_container.example.name
 }

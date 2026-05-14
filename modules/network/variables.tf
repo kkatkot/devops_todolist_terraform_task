@@ -1,17 +1,17 @@
-variable virtual_network_name {}
+variable "virtual_network_name" {}
 
-variable vnet_address_prefix {}
+variable "vnet_address_prefix" {}
 
-variable subnet_name {}
+variable "subnet_name" {}
 
-variable subnet_address_prefix {}
+variable "subnet_address_prefix" {}
 
-variable network_security_group_name {}
+variable "network_security_group_name" {}
 
-variable public_ip_address_name {}
+variable "public_ip_address_name" {}
 
-variable dns_label {}
+variable "dns_label" {}
 
-variable location {}
+variable "location" {}
 
-variable resource_group_name {}
+variable "resource_group_name" {}
