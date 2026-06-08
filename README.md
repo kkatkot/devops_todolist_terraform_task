@@ -36,18 +36,15 @@ Follow these step-by-step commands to initialize and apply the infrastructure co
 
 2. **Initialize the Working Directory:**
 Downloads the required cloud provider plugins and initializes the backend configuration.
-Bash
-
-terraform init
+   ```bash
+   terraform init
 
 3. **Generate an Execution Plan:**
 Creates an execution plan, allowing you to preview the cloud resources that will be created or modified.
-Bash
-
-terraform plan
+   ```bash
+   terraform plan
 
 4. **Apply the Configuration:**
 Provision the infrastructure on the designated cloud platform.
-Bash
-
-terraform apply
+   ```bash
+   terraform apply
